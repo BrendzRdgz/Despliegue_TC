@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Predict Revenue</title>
+</head>
+<body>
+    <h1>Predict Revenue</h1>
+    <form action="/api/v1/predict" method="get">
+        <label for="followers">Followers:</label>
+        <input type="text" id="followers" name="followers"><br>
+        <label for="average_views">Average Views:</label>
+        <input type="text" id="average_views" name="average_views"><br>
+        <label for="average_interactions">Average Interactions:</label>
+        <input type="text" id="average_interactions" name="average_interactions"><br>
+        <label for="posting_frequency">Posting Frequency:</label>
+        <input type="text" id="posting_frequency" name="posting_frequency"><br>
+        <input type="submit" value="Predict">
+    </form>
+    {% if prediction %}
+        <h2>Prediction: {{ prediction }}</h2>
+    {% endif %}
+</body>
+</html>
