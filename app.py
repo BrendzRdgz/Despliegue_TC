@@ -8,9 +8,9 @@ from sklearn.metrics import mean_squared_error, mean_absolute_percentage_error
 import numpy as np
 
 # Path settings
-csv_path = 'data/revenue.csv'
-csv_path_retrain = 'data/revenue_updated.csv'
-model_path = 'ad_model.pkl'
+csv_path = os.path.join(os.path.dirname(__file__), 'data', 'revenue.csv')
+csv_path_retrain = os.path.join(os.path.dirname(__file__), 'data', 'revenue_updated.csv')
+model_path = os.path.join(os.path.dirname(__file__), 'ad_model.pkl')
 
 app = Flask(__name__)
 app.config['DEBUG'] = True
