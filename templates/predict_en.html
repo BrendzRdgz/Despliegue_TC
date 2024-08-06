@@ -20,7 +20,7 @@
         <input type="submit" value="Predict">
     </form>
     {% if prediction %}
-        <h2>Prediction: {{ prediction }}</h2>
+        <h2>Prediction: ${{ prediction }}</h2>
     {% endif %}
     <br>
     <a href="/?lang={{ request.args.get('lang', 'en') }}" class="back-button">Go Back</a>
