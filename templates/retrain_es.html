@@ -1,23 +1,22 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Retrain Model</title>
+    <title>Reentrenar Modelo</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
-
 </head>
 <body>
-    <h1>Retrain Model</h1>
+    <h1>Reentrenar Modelo</h1>
     <form action="/api/v1/retrain" method="get">
-        <input type="submit" value="Retrain">
+        <input type="hidden" name="lang" value="{{ lang }}">
+        <input type="submit" value="Reentrenar">
     </form>
     {% if metrics %}
-        <h2>Model retrained.</h2>
+        <h2>Modelo reentrenado.</h2>
         <p>RMSE: {{ metrics.rmse }}</p>
         <p>MAPE: {{ metrics.mape }}</p>
     {% endif %}
-    
     <br>
-    <a class="back-button">Go Back</a>
+    <a href="/?lang={{ lang }}" class="back-button">Volver</a>
 </body>
 </html>

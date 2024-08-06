@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>収入を予測する</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>収入を予測する</h1>
+    <form action="/api/v1/predict" method="get">
+        <input type="hidden" name="lang" value="{{ request.args.get('lang', 'ja') }}">
+        <label for="followers">フォロワー:</label>
+        <input type="text" id="followers" name="followers" value="{{ request.args.get('followers', '') }}"><br>
+        <label for="average_views">平均視聴回数:</label>
+        <input type="text" id="average_views" name="average_views" value="{{ request.args.get('average_views', '') }}"><br>
+        <label for="average_interactions">平均インタラクション:</label>
+        <input type="text" id="average_interactions" name="average_interactions" value="{{ request.args.get('average_interactions', '') }}"><br>
+        <label for="posting_frequency">投稿頻度:</label>
+        <input type="text" id="posting_frequency" name="posting_frequency" value="{{ request.args.get('posting_frequency', '') }}"><br>
+        <input type="submit" value="予測する">
+    </form>
+    {% if prediction %}
+        <h2>予測: {{ prediction }}</h2>
+    {% endif %}
+    <br>
+    <a href="/?lang={{ request.args.get('lang', 'ja') }}" class="back-button">戻る</a>
+</body>
+</html>

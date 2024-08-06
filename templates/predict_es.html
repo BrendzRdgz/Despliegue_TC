@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Predecir Ingresos</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>Predecir Ingresos</h1>
+    <form action="/api/v1/predict" method="get">
+        <input type="hidden" name="lang" value="{{ request.args.get('lang', 'es') }}">
+        <label for="followers">Seguidores:</label>
+        <input type="text" id="followers" name="followers" value="{{ request.args.get('followers', '') }}"><br>
+        <label for="average_views">Promedio de Vistas:</label>
+        <input type="text" id="average_views" name="average_views" value="{{ request.args.get('average_views', '') }}"><br>
+        <label for="average_interactions">Promedio de Interacciones:</label>
+        <input type="text" id="average_interactions" name="average_interactions" value="{{ request.args.get('average_interactions', '') }}"><br>
+        <label for="posting_frequency">Frecuencia de Publicación:</label>
+        <input type="text" id="posting_frequency" name="posting_frequency" value="{{ request.args.get('posting_frequency', '') }}"><br>
+        <input type="submit" value="Predecir">
+    </form>
+    {% if prediction %}
+        <h2>Predicción: {{ prediction }}</h2>
+    {% endif %}
+    <br>
+    <a href="/?lang={{ request.args.get('lang', 'es') }}" class="back-button">Volver</a>
+</body>
+</html>

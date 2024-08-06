@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>ホーム</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>あなたは成功したインフルエンサーになりますか？</h1>
+    <ul>
+        <li><a href="/api/v1/predict?lang=ja">収益予測</a></li>
+        <li><a href="/api/v1/retrain?lang=ja">モデル再訓練</a></li>
+    </ul>
+    <div>
+        <a href="/?lang=en">English</a>
+        <a href="/?lang=es">Español</a>
+        <a href="/?lang=ja">日本語</a>
+    </div>
+</body>
+</html>
