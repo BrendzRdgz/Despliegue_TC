@@ -9,18 +9,18 @@
     <h1>収入を予測する</h1>
     <form action="/api/v1/predict" method="get">
         <input type="hidden" name="lang" value="{{ request.args.get('lang', 'ja') }}">
-        <label for="followers">フォロワー:</label>
+        <label for="followers">フォロワー数:</label>
         <input type="text" id="followers" name="followers" value="{{ request.args.get('followers', '') }}"><br>
-        <label for="average_views">平均視聴回数:</label>
+        <label for="average_views">動画ごとの平均視聴回数:</label>
         <input type="text" id="average_views" name="average_views" value="{{ request.args.get('average_views', '') }}"><br>
-        <label for="average_interactions">平均インタラクション:</label>
+        <label for="average_interactions">投稿ごとの平均インタラクション数:</label>
         <input type="text" id="average_interactions" name="average_interactions" value="{{ request.args.get('average_interactions', '') }}"><br>
-        <label for="posting_frequency">投稿頻度:</label>
+        <label for="posting_frequency">投稿頻度 (月ごと):</label>
         <input type="text" id="posting_frequency" name="posting_frequency" value="{{ request.args.get('posting_frequency', '') }}"><br>
         <input type="submit" value="予測する">
     </form>
     {% if prediction %}
-        <h2>予測: ${{ prediction }}</h2>
+        <h2>予測月間収益 (USD): ${{ prediction }}</h2>
     {% endif %}
     <br>
     <a href="/?lang={{ request.args.get('lang', 'ja') }}" class="back-button">戻る</a>

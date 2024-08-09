@@ -13,7 +13,7 @@ posting_frequency = np.random.randint(1, 30, size=num_samples)
 #content_types = ['Gaming', 'Lifestyle', 'Education']
 #content_type = np.random.choice(content_types, size=num_samples)
 
-# Supongamos una fórmula para calcular los ingresos basada en estas características
+# Supongamos una fórmula para calcular los ingresos (en miles de dólares) basada en estas características
 base_income = 500  # Base de ingresos fija para todos los influencers
 income_per_follower = 0.01  # Ingresos por cada seguidor
 income_per_view = 0.05  # Ingresos por cada visualización

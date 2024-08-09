@@ -11,16 +11,16 @@
         <input type="hidden" name="lang" value="{{ request.args.get('lang', 'es') }}">
         <label for="followers">Seguidores:</label>
         <input type="text" id="followers" name="followers" value="{{ request.args.get('followers', '') }}"><br>
-        <label for="average_views">Promedio de Vistas:</label>
+        <label for="average_views">Promedio de Vistas por Vídeo:</label>
         <input type="text" id="average_views" name="average_views" value="{{ request.args.get('average_views', '') }}"><br>
-        <label for="average_interactions">Promedio de Interacciones:</label>
+        <label for="average_interactions">Promedio de Interacciones por Publicación:</label>
         <input type="text" id="average_interactions" name="average_interactions" value="{{ request.args.get('average_interactions', '') }}"><br>
-        <label for="posting_frequency">Frecuencia de Publicación:</label>
+        <label for="posting_frequency">Frecuencia de Publicación (al mes):</label>
         <input type="text" id="posting_frequency" name="posting_frequency" value="{{ request.args.get('posting_frequency', '') }}"><br>
         <input type="submit" value="Predecir">
     </form>
     {% if prediction %}
-        <h2>Predicción: {{ prediction }}$</h2>
+        <h2>Predicción de Ingresos Mensuales (USD): {{ prediction }} $</h2>
     {% endif %}
     <br>
     <a href="/?lang={{ request.args.get('lang', 'es') }}" class="back-button">Volver</a>
